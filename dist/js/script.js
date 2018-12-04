@@ -1,8 +1,9 @@
 (function() {
   const gameContainer = document.querySelector(".game");
-  const resetBtn = document.querySelector('.game__footer');
+  const resetBtn = document.querySelector(".game__footer");
+
   const renderGame = function() {
-    gameContainer.innerHTML = '';
+    gameContainer.innerHTML = "";
     for (let i = 0; i < 9; i++) {
       const blocks = document.createElement("div");
       blocks.classList.add("game__blocks");
@@ -32,28 +33,36 @@
         if (counter % 2 == 0) {
           zeroStatusGame.push(+e.target.dataset.id);
           zeroStatusGame.sort();
-          e.target.classList.add('zero');
+          e.target.classList.add("zero");
           e.target.removeAttribute("data-id");
         } else {
           crossStatusGame.push(+e.target.dataset.id);
           crossStatusGame.sort();
-          e.target.classList.add('cross');
+          e.target.classList.add("cross");
           e.target.removeAttribute("data-id");
         }
       }
-      for(let i = 0; i < winArr.length; i++) {
-        let checkedCrossArr = crossStatusGame.filter(e => ~winArr[i].indexOf(e));
-        let checkedZeroArr = crossStatusGame.filter(e => ~winArr[i].indexOf(e));
+      for (let i = 0; i < winArr.length; i++) {
+        let checkedCrossArr = crossStatusGame.filter(
+          e => ~winArr[i].indexOf(e)
+        );
+        let checkedZeroArr = zeroStatusGame.filter(e => ~winArr[i].indexOf(e));
 
-        if(JSON.stringify(winArr[i]) === JSON.stringify(checkedCrossArr)){
-         alert("WIN CROSS")
-        } else if (JSON.stringify(winArr[i]) === JSON.stringify(checkedZeroArr)) {
+        if (JSON.stringify(winArr[i]) === JSON.stringify(checkedCrossArr)) {
+          alert("WIN CROSS");
+        } else if (
+          JSON.stringify(winArr[i]) === JSON.stringify(checkedZeroArr)) {
           alert("WIN ZERO");
         }
       }
     });
   };
-  resetBtn.addEventListener('click', renderGame);
+
+  resetBtn.addEventListener("click", function() {
+    checkBlocks();
+    renderGame();
+  });
+
   renderGame();
   checkBlocks();
 })();

@@ -4,12 +4,12 @@
 .game {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 40%;
-  margin: auto; }
+  width: 30%;
+  margin: 5% auto; }
   .game__blocks {
     border-right: 10px solid rgba(0, 0, 0, 0.6);
     border-bottom: 10px solid rgba(0, 0, 0, 0.6);
-    height: 190px;
+    height: 150px;
     width: 100%;
     margin: auto;
     cursor: pointer;
@@ -20,7 +20,7 @@
       border-bottom: 5px solid transparent; }
   .game__footer {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 10%;
     height: 100px;
     background: #fff;
     font-family: sans-serif;
@@ -32,8 +32,8 @@
 
 .cross {
   background: url("../img/cross.svg") no-repeat center;
-  background-size: 90%; }
+  background-size: 80%; }
 
 .zero {
   background: url("../img/oval.svg") no-repeat center;
-  background-size: 90%; }
+  background-size: 80%; }
