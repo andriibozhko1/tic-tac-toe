@@ -1,7 +1,8 @@
 (function() {
   const gameContainer = document.querySelector(".game");
-
+  const resetBtn = document.querySelector('.game__footer');
   const renderGame = function() {
+    gameContainer.innerHTML = '';
     for (let i = 0; i < 9; i++) {
       const blocks = document.createElement("div");
       blocks.classList.add("game__blocks");
@@ -31,13 +32,13 @@
         if (counter % 2 == 0) {
           zeroStatusGame.push(+e.target.dataset.id);
           zeroStatusGame.sort();
+          e.target.classList.add('zero');
           e.target.removeAttribute("data-id");
-          e.target.innerHTML = "O";
         } else {
           crossStatusGame.push(+e.target.dataset.id);
           crossStatusGame.sort();
+          e.target.classList.add('cross');
           e.target.removeAttribute("data-id");
-          e.target.innerHTML = "X";
         }
       }
       for(let i = 0; i < winArr.length; i++) {
@@ -52,7 +53,7 @@
       }
     });
   };
-
+  resetBtn.addEventListener('click', renderGame);
   renderGame();
   checkBlocks();
 })();
