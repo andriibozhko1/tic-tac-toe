@@ -43,9 +43,7 @@
         }
       }
       for (let i = 0; i < winArr.length; i++) {
-        let checkedCrossArr = crossStatusGame.filter(
-          e => ~winArr[i].indexOf(e)
-        );
+        let checkedCrossArr = crossStatusGame.filter(e => ~winArr[i].indexOf(e));
         let checkedZeroArr = zeroStatusGame.filter(e => ~winArr[i].indexOf(e));
 
         if (JSON.stringify(winArr[i]) === JSON.stringify(checkedCrossArr)) {
